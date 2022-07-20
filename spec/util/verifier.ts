@@ -85,7 +85,7 @@ const lastFileCoverage = (code?: string) => {
     .find((v) => v.includes("__coverage_data_json_comment__::"))
     ?.split("__coverage_data_json_comment__::")[1];
 
-  const data = commentLine?.substring(0, commentLine.lastIndexOf("*/"));
+  const data = commentLine?.substring(0, commentLine.indexOf("*/"));
   return data ? JSON.parse(data) : {};
 };
 

@@ -18,9 +18,10 @@ pub static COMMENT_RE: Lazy<Regexp> =
     Lazy::new(|| Regexp::new(r"^\s*istanbul\s+ignore\s+(if|else|next)(\W|$)").unwrap());
 
 pub fn should_ignore_file<C: Clone + Comments>(comments: &C, program: &Program) -> bool {
-    let pos = match program {
+    let pos = match &program {
         Program::Module(module) => module.span,
         Program::Script(script) => script.span,
+        _ => unreachable!("program should be module or script"),
     };
 
     let validate_comments = |comments: &Option<Vec<Comment>>| {
