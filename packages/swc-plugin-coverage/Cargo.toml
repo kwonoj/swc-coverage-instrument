@@ -13,6 +13,6 @@ crate-type = ["cdylib"]
 [dependencies]
 swc-coverage-instrument = { version = "0.0.7", path = "../swc-coverage-instrument" }
 serde_json = "1.0.82"
-swc_plugin = { version = "0.63.0", features = ["quote"] }
+swc_plugin = { version = "0.85.0", features = ["quote"] }
 tracing = "0.1.35"
-tracing-subscriber = { version = "0.3.14", features = ["fmt"] }
+tracing-subscriber = { version = "0.3.15", features = ["fmt"] }
